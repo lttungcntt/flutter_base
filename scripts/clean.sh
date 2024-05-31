@@ -1,4 +1,4 @@
 flutter clean
 flutter pub get
-dart pub run build_runner build --delete-conflicting-outputs
+sh scripts/build_runner.sh
 sh scripts/generate_assets.sh
