@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 import '../../../generated/l10n.dart';
+import '../../common/constants/constants.dart';
 import '../../common/extensions/build_context_x.dart';
 import '../../common/theme/app_theme.dart';
 import '../../common/theme/app_theme_wrapper.dart';
@@ -28,7 +29,7 @@ class AppWidget extends StatelessWidget {
                 : ThemeMode.dark
             : themeMode;
         return ScreenUtilInit(
-          designSize: const Size(390, 844),
+          designSize: Constants.defaultScreenSize,
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) => BlocBuilder<LangCubit, Locale>(

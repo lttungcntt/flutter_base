@@ -7,6 +7,9 @@ import '../../modules/auth/presentation/pages/auth_page.dart';
 import '../../modules/counter/presentation/pages/counter_page.dart';
 import '../../modules/home/presentation/pages/home_page.dart';
 import '../../modules/splash/presentation/pages/splash_page.dart';
+import '../dashboard/presentation/pages/dashboard_page.dart';
+import '../home/domain/entities/home.dart';
+import '../home_detail/presentation/pages/home_detail_page.dart';
 import '../settings/presentation/pages/settings_page.dart';
 import '../supportive/presentation/pages/supportive_page.dart';
 
@@ -17,12 +20,14 @@ part 'app_router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-    AutoRoute(page: SplashRoute.page, path: '/'),
-    AutoRoute(page: HomeRoute.page),
-    AutoRoute(page: AuthRoute.page),
-    AutoRoute(page: CounterRoute.page),
-    AutoRoute(page: AboutRoute.page),
-    AutoRoute(page: SettingsRoute.page),
-    AutoRoute(page: SupportiveRoute.page),
-  ];
+        AutoRoute(page: SplashRoute.page, path: '/'),
+        AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: AuthRoute.page),
+        AutoRoute(page: CounterRoute.page),
+        AutoRoute(page: AboutRoute.page),
+        AutoRoute(page: SettingsRoute.page),
+        AutoRoute(page: SupportiveRoute.page),
+        AutoRoute(page: DashboardRoute.page),
+        AutoRoute(page: HomeDetailRoute.page),
+      ];
 }

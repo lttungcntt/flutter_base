@@ -20,7 +20,7 @@ import 'package:flutter_base/src/core/application/cubits/auth/auth_cubit.dart'
     as _i30;
 import 'package:flutter_base/src/core/application/cubits/lang/lang_cubit.dart'
     as _i25;
-import 'package:flutter_base/src/core/application/cubits/lang/theme_cubit.dart'
+import 'package:flutter_base/src/core/application/cubits/theme/theme_cubit.dart'
     as _i24;
 import 'package:flutter_base/src/core/domain/interfaces/lang_repository_interface.dart'
     as _i15;
