@@ -10,7 +10,7 @@ Base Flutter Project.
 `dart pub global activate copy_template`
 
 + Step 3:
-`copy_template {{name}} https://github.com/thanhtungcntt/flutter_base.git {{source_path}} `
+`copy_template {{name}} https://github.com/lttungcntt/flutter_base.git {{source_path}} `
 
 Note: 
 
