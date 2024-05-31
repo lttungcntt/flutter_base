@@ -81,25 +81,25 @@ class _$CounterEventCopyWithImpl<$Res, $Val extends CounterEvent>
 }
 
 /// @nodoc
-abstract class _$$IncreasementImplCopyWith<$Res> {
-  factory _$$IncreasementImplCopyWith(
-          _$IncreasementImpl value, $Res Function(_$IncreasementImpl) then) =
-      __$$IncreasementImplCopyWithImpl<$Res>;
+abstract class _$$IncrementImplCopyWith<$Res> {
+  factory _$$IncrementImplCopyWith(
+          _$IncrementImpl value, $Res Function(_$IncrementImpl) then) =
+      __$$IncrementImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$IncreasementImplCopyWithImpl<$Res>
-    extends _$CounterEventCopyWithImpl<$Res, _$IncreasementImpl>
-    implements _$$IncreasementImplCopyWith<$Res> {
-  __$$IncreasementImplCopyWithImpl(
-      _$IncreasementImpl _value, $Res Function(_$IncreasementImpl) _then)
+class __$$IncrementImplCopyWithImpl<$Res>
+    extends _$CounterEventCopyWithImpl<$Res, _$IncrementImpl>
+    implements _$$IncrementImplCopyWith<$Res> {
+  __$$IncrementImplCopyWithImpl(
+      _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$IncreasementImpl implements _Increment {
-  const _$IncreasementImpl();
+class _$IncrementImpl implements _Increment {
+  const _$IncrementImpl();
 
   @override
   String toString() {
@@ -109,7 +109,7 @@ class _$IncreasementImpl implements _Increment {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$IncreasementImpl);
+        (other.runtimeType == runtimeType && other is _$IncrementImpl);
   }
 
   @override
@@ -185,29 +185,29 @@ class _$IncreasementImpl implements _Increment {
 }
 
 abstract class _Increment implements CounterEvent {
-  const factory _Increment() = _$IncreasementImpl;
+  const factory _Increment() = _$IncrementImpl;
 }
 
 /// @nodoc
-abstract class _$$DecreasementImplCopyWith<$Res> {
-  factory _$$DecreasementImplCopyWith(
-          _$DecreasementImpl value, $Res Function(_$DecreasementImpl) then) =
-      __$$DecreasementImplCopyWithImpl<$Res>;
+abstract class _$$DecrementImplCopyWith<$Res> {
+  factory _$$DecrementImplCopyWith(
+          _$DecrementImpl value, $Res Function(_$DecrementImpl) then) =
+      __$$DecrementImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$DecreasementImplCopyWithImpl<$Res>
-    extends _$CounterEventCopyWithImpl<$Res, _$DecreasementImpl>
-    implements _$$DecreasementImplCopyWith<$Res> {
-  __$$DecreasementImplCopyWithImpl(
-      _$DecreasementImpl _value, $Res Function(_$DecreasementImpl) _then)
+class __$$DecrementImplCopyWithImpl<$Res>
+    extends _$CounterEventCopyWithImpl<$Res, _$DecrementImpl>
+    implements _$$DecrementImplCopyWith<$Res> {
+  __$$DecrementImplCopyWithImpl(
+      _$DecrementImpl _value, $Res Function(_$DecrementImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$DecreasementImpl implements _Decrement {
-  const _$DecreasementImpl();
+class _$DecrementImpl implements _Decrement {
+  const _$DecrementImpl();
 
   @override
   String toString() {
@@ -217,7 +217,7 @@ class _$DecreasementImpl implements _Decrement {
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$DecreasementImpl);
+        (other.runtimeType == runtimeType && other is _$DecrementImpl);
   }
 
   @override
@@ -293,7 +293,7 @@ class _$DecreasementImpl implements _Decrement {
 }
 
 abstract class _Decrement implements CounterEvent {
-  const factory _Decrement() = _$DecreasementImpl;
+  const factory _Decrement() = _$DecrementImpl;
 }
 
 /// @nodoc
