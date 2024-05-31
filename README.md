@@ -7,10 +7,10 @@ Base Flutter Project.
 `open terminal`
 
 + Step 2:
-`dart pub global activate copy_template`
+    dart pub global activate copy_template
 
 + Step 3:
-`copy_template {{name}} https://github.com/lttungcntt/flutter_base.git {{source_path}} `
+    copy_template {{name}} https://github.com/lttungcntt/flutter_base.git {{source_path}}
 
 Note: 
 
