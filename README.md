@@ -11,7 +11,6 @@ Base Flutter Project.
 dart pub global activate copy_template
 
 + Step 3:
-```javascript 
 copy_template {{name}} https://github.com/lttungcntt/flutter_base.git {{source_path}}
 
 Note: 
