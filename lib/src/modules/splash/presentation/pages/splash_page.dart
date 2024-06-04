@@ -17,7 +17,7 @@ class SplashPage extends StatelessWidget {
 
     getIt<AuthCubit>().state.whenOrNull(
           authenticated: (user) =>
-              getIt<AppRouter>().replaceAll([const HomeRoute()]),
+              getIt<AppRouter>().replaceAll([const DashboardRoute()]),
           unauthenticated: () =>
               getIt<AppRouter>().replaceAll([const AuthRoute()]),
         );

@@ -29,7 +29,8 @@ void main() {
     final langRepository = getIt<ILangRepository>();
     final talker = getIt<Talker>();
     _setupErrorHooks(talker);
-    logger.d('deviceLocale - ${langRepository.getDeviceLocale().fullLanguageCode}');
+    logger.d(
+        'deviceLocale - ${langRepository.getDeviceLocale().fullLanguageCode}');
     logger.d('currentLocale - ${langRepository.getLocale().fullLanguageCode}');
 
     Bloc.observer = TalkerBlocObserver(talker: talker);
@@ -45,8 +46,10 @@ void main() {
             BlocListener<AuthCubit, AuthState>(listener: (context, state) {
               final router = getIt<AppRouter>();
               state.whenOrNull(
-                  authenticated: (user) => router.replaceAll([const HomeRoute()]),
-                  unauthenticated: () => router.replaceAll([const AuthRoute()]));
+                  authenticated: (user) =>
+                      router.replaceAll([const DashboardRoute()]),
+                  unauthenticated: () =>
+                      router.replaceAll([const AuthRoute()]));
             }),
           ],
           child: const AppWidget(),
