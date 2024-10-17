@@ -1,5 +1,5 @@
-import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
+import 'package:riverbloc/riverbloc.dart';
 
 mixin CancelableBaseBloc<T> on BlocBase<T> {
   CancelToken? cancelToken = CancelToken();
