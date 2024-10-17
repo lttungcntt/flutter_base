@@ -34,6 +34,8 @@ import 'package:flutter_base/src/core/infrastructure/repositories/lang_repositor
     as _i992;
 import 'package:flutter_base/src/core/infrastructure/repositories/theme_repository.dart'
     as _i400;
+import 'package:flutter_base/src/modules/about/application/blocs/about/about_bloc.dart'
+    as _i700;
 import 'package:flutter_base/src/modules/app/app_router.dart' as _i12;
 import 'package:flutter_base/src/modules/auth/domain/interfaces/auth_repository_interface.dart'
     as _i656;
@@ -86,6 +88,7 @@ extension GetItInjectableX on _i174.GetIt {
     );
     final loggerModule = _$LoggerModule();
     final apiModule = _$ApiModule();
+    gh.factory<_i700.AboutBloc>(() => _i700.AboutBloc());
     gh.singleton<_i207.Talker>(() => loggerModule.talker());
     gh.singleton<_i241.DefaultTextTheme>(() => _i241.DefaultTextTheme());
     gh.singleton<_i959.DefaultDarkColorTheme>(
