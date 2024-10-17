@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talker_flutter/talker_flutter.dart';
-import 'package:talker_riverpod_logger/talker_riverpod_logger.dart';
+import 'package:talker_riverpod_logger/talker_riverpod_logger_observer.dart';
 
 import 'src/common/extensions/locale_x.dart';
 import 'src/common/utils/app_environment.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 import '../../../../../generated/l10n.dart';
@@ -9,25 +9,26 @@ import '../../../../common/widgets/background_container.dart';
 import '../../../../core/application/cubits/lang/lang_cubit.dart';
 import '../../../../core/application/cubits/theme/theme_cubit.dart';
 
-class SettingsBody extends StatelessWidget {
+class SettingsBody extends ConsumerWidget {
   const SettingsBody({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return BackgroundContainer(
       child: ListView(
         children: [
-          _buildLanguageDropdown(context),
-          _buildThemeModeDropdown(context),
-          _buildVersionInfo(context),
+          _buildLanguageDropdown(context, ref),
+          _buildThemeModeDropdown(context, ref),
+          _buildVersionInfo(context, ref),
         ],
       ),
     );
   }
 
-  Widget _buildLanguageDropdown(BuildContext context) {
+  Widget _buildLanguageDropdown(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(langProvider.bloc).state;
     return ListTile(
       title: Row(
         children: [
@@ -37,26 +38,22 @@ class SettingsBody extends StatelessWidget {
                 .copyWith(color: context.colorTheme.primaryText),
           ),
           const Spacer(),
-          BlocBuilder<LangCubit, Locale>(
-            builder: (context, state) {
-              return DropdownButton<Locale>(
-                  dropdownColor: context.colorTheme.primaryContainer,
-                  value: state,
-                  items: LocaleX.supportedLocales
-                      .map((locale) => DropdownMenuItem(
-                            value: locale,
-                            child: Text(
-                              locale.languageName,
-                              style: context.textTheme.titleMedium.copyWith(
-                                  color: context.colorTheme.primaryText),
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    if (value == null) return;
-                    final langCubit = context.read<LangCubit>();
-                    langCubit.setLocale(value);
-                  });
+          DropdownButton<Locale>(
+            dropdownColor: context.colorTheme.primaryContainer,
+            value: state,
+            items: LocaleX.supportedLocales
+                .map((locale) => DropdownMenuItem(
+                      value: locale,
+                      child: Text(
+                        locale.languageName,
+                        style: context.textTheme.titleMedium
+                            .copyWith(color: context.colorTheme.primaryText),
+                      ),
+                    ))
+                .toList(),
+            onChanged: (value) {
+              if (value == null) return;
+              ref.read(langProvider.bloc).setLocale(value);
             },
           ),
         ],
@@ -64,7 +61,8 @@ class SettingsBody extends StatelessWidget {
     );
   }
 
-  Widget _buildThemeModeDropdown(BuildContext context) {
+  Widget _buildThemeModeDropdown(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(themeProvider.bloc).state;
     return ListTile(
       title: Row(
         children: [
@@ -74,35 +72,30 @@ class SettingsBody extends StatelessWidget {
                 .copyWith(color: context.colorTheme.primaryText),
           ),
           const Spacer(),
-          BlocBuilder<ThemeCubit, ThemeMode>(
-            builder: (context, state) {
-              return DropdownButton<ThemeMode>(
-                  dropdownColor: context.colorTheme.primaryContainer,
-                  value: state,
-                  items: ThemeMode.values
-                      .map((themeMode) => DropdownMenuItem(
-                            value: themeMode,
-                            child: Text(
-                              context.s.themeMode(themeMode),
-                              style: context.textTheme.titleMedium.copyWith(
-                                  color: context.colorTheme.primaryText),
-                            ),
-                          ))
-                      .toList(),
-                  onChanged: (value) {
-                    if (value == null) return;
-                    final themeCubit = context.read<ThemeCubit>();
-                    themeCubit.setTheme(value);
-                    // context.router.replaceAll([SplashRoute()]);
-                  });
+          DropdownButton<ThemeMode>(
+            dropdownColor: context.colorTheme.primaryContainer,
+            value: state,
+            items: ThemeMode.values
+                .map((themeMode) => DropdownMenuItem(
+                      value: themeMode,
+                      child: Text(
+                        context.s.themeMode(themeMode),
+                        style: context.textTheme.titleMedium
+                            .copyWith(color: context.colorTheme.primaryText),
+                      ),
+                    ))
+                .toList(),
+            onChanged: (value) {
+              if (value == null) return;
+              ref.read(themeProvider.bloc).setTheme(value);
             },
-          )
+          ),
         ],
       ),
     );
   }
 
-  Widget _buildVersionInfo(BuildContext context) {
+  Widget _buildVersionInfo(BuildContext context, WidgetRef ref) {
     return ListTile(
       title: FutureBuilder<PackageInfo>(
           future: PackageInfo.fromPlatform(),

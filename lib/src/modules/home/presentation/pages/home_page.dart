@@ -1,12 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../common/extensions/build_context_x.dart';
-import '../../../../common/utils/getit_utils.dart';
 import '../../../../common/widgets/background_container.dart';
 import '../../../../common/widgets/common_appbar.dart';
-import '../../application/cubit/home_cubit.dart';
 import '../widgets/home_body.dart';
 
 @RoutePage()
@@ -34,12 +31,7 @@ class _HomePageState extends State<HomePage>
           ),
         ],
       ),
-      body: BackgroundContainer(
-        child: BlocProvider(
-          create: (context) => getIt<HomeCubit>(),
-          child: const HomeBody(),
-        ),
-      ),
+      body: BackgroundContainer(child: const HomeBody()),
     );
   }
 

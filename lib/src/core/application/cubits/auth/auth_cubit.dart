@@ -12,10 +12,8 @@ import '../../../infrastructure/datasources/remote/api/services/auth/models/logi
 part 'auth_cubit.freezed.dart';
 part 'auth_state.dart';
 
-
-final authProvider = BlocProvider<AuthCubit, AuthState>(
-  (_) => getIt<AuthCubit>(),
-);
+final authProvider =
+    BlocProvider<AuthCubit, AuthState>((_) => getIt<AuthCubit>());
 
 @singleton
 class AuthCubit extends Cubit<AuthState> {

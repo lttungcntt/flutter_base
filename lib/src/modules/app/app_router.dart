@@ -4,7 +4,6 @@ import 'package:injectable/injectable.dart';
 
 import '../../modules/about/presentation/pages/about_page.dart';
 import '../../modules/auth/presentation/pages/auth_page.dart';
-import '../../modules/counter/presentation/pages/counter_page.dart';
 import '../../modules/home/presentation/pages/home_page.dart';
 import '../../modules/splash/presentation/pages/splash_page.dart';
 import '../dashboard/presentation/pages/dashboard_page.dart';
@@ -23,7 +22,6 @@ class AppRouter extends RootStackRouter {
         AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AuthRoute.page),
-        AutoRoute(page: CounterRoute.page),
         AutoRoute(page: AboutRoute.page),
         AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: SupportiveRoute.page),

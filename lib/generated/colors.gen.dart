@@ -13,6 +13,9 @@ import 'package:flutter/material.dart';
 class ColorName {
   ColorName._();
 
+  /// Color: #A9A9A9
+  static const Color textUnselected = Color(0xFFA9A9A9);
+
   /// Color: #FFEDE5
   static const Color background = Color(0xFFFFEDE5);
 

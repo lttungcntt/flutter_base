@@ -20,6 +20,12 @@ abstract class LightColorThemeFactory implements ColorThemeFactory {
   Color get backgroundAppBar => ColorName.primary;
   @override
   Color get titleAppBar => ColorName.white;
+  @override
+  Color get white => ColorName.white;
+  @override
+  Color get black => ColorName.black;
+  @override
+  Color get textUnselected => ColorName.textUnselected;
 }
 
 abstract class DarkColorThemeFactory implements ColorThemeFactory {
@@ -39,4 +45,10 @@ abstract class DarkColorThemeFactory implements ColorThemeFactory {
   Color get backgroundAppBar => ColorName.black;
   @override
   Color get titleAppBar => ColorName.white;
+  @override
+  Color get white => ColorName.black;
+  @override
+  Color get black => ColorName.white;
+  @override
+  Color get textUnselected => ColorName.textUnselected;
 }

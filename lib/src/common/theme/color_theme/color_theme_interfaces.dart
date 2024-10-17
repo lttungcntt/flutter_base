@@ -10,4 +10,7 @@ abstract class ColorThemeFactory {
   Color get secondaryText; // secondaryText is the same as onSecondary
   Color get backgroundAppBar; // background is the same as surface
   Color get titleAppBar; // t
+  Color get white;
+  Color get black;
+  Color get textUnselected;
 }
