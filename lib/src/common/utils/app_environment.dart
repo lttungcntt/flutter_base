@@ -20,11 +20,9 @@ class AppEnvironment {
 
   static const environments = [dev, prg, uat, prd];
 
-  static bool get isRunOnDevelopmentMode {
+  static bool isRunOnDevelopmentMode() {
     return [alpha, dev, prg].contains(flavor);
   }
-
-  static bool get isAlpha => alpha == flavor;
 }
 
 const alpha = Environment(AppEnvironment.alpha);

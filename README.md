@@ -1,63 +1,117 @@
-# flutter_base
+# Flexible Theme for flutter projects
 
-Base Flutter Project.
+This theme concept is inspired by the Factory Method pattern, which can change Flutter ThemeData and TextTheme by language. This document describes how to configure this concept in your Flutter project.
 
-## Using
-+ Step 1: 
-`open terminal`
+To use this theme concept, follow these steps:
 
-+ Step 2:
-```javascript 
-dart pub global activate copy_template
+1. Define a theme class for each supported locale. For example, if you support English and Chinese, you might define two classes:
 
-+ Step 3:
-copy_template {{name}} https://github.com/lttungcntt/flutter_base.git {{source_path}}
+```dart
+class EnTextThemeFactory implements TextThemeFactory {
+  @override
+  TextTheme create() {
+    return TextTheme(
+        displayLarge: displayLarge,
+        displayMedium: displayMedium,
+        displaySmall: displaySmall,
+        headlineLarge: headlineLarge,
+        headlineMedium: headlineMedium,
+        headlineSmall: headlineSmall,
+        titleLarge: titleLarge,
+        titleMedium: titleMedium,
+        titleSmall: titleSmall,
+        bodyLarge: bodyLarge,
+        bodyMedium: bodyMedium,
+        bodySmall: bodySmall,
+        labelLarge: labelLarge,
+        labelMedium: labelMedium,
+        labelSmall: labelSmall);
+  }
 
-Note: 
+  ...
 
-{{name}}: name project (ex: application_flutter_project)
+}
 
-{{source_path}}: path contains the code base (ex: /Users/Application/) 
+class ZhTextThemeFactory implements TextThemeFactory {}
+```
 
-## Conventional commits
-### Example:
-- `feat: new feature`
-- `fix(scope): bug in scope`
-- `feat!: breaking change in API`
-- `chore(deps): update dependencies`
+Or, maybe reuse the old theme class and recreate a new variant:
 
-### Structure:
-<­typ­e>­[o­ptional scope]: <de­scr­ipt­ion­>
-[optional body]
-[optional footer]
+```dart
+class EnTextThemeFactory extends BaseTextThemeFactory {
+   @override
+  TextStyle get light => const TextStyle(
+        color: ColorName.black,
+        fontSize: 16,
+        fontFamily: FontFamily.roboto,
+        fontWeight: FontWeight.w300,
+        letterSpacing: 0,
+      );
 
-### Types:
-- `feat`	    A new feature
-- `fix` 	    A bug fix
-- `docs`	    Docume­ntation only changes
-- `style`	    Changes that do not affect the meaning of the code (white­-space, format­ting, missing semi-c­olons, etc)
-- `refactor`	A code change that neither fixes a bug nor adds a feature
-- `perf`	    A code change that improves perfor­mance
-- `test`	    Adding missing tests or correcting existing tests
-- `build`	    Changes that affect the build system or external depend­encies (example scopes: gulp, broccoli, npm)
-- `ci`	        Changes to our CI config­uration files and scripts (example scopes: Travis, Circle, Browse­rStack, SauceLabs)
-- `chore`	    Other changes that don’t modify src or test files
-- `revert`	    Reverts a previous commit
+      ...
+}
 
-## A few resources to get you started:
+class ZhTextThemeFactory implements BaseTextThemeFactory {}
+```
 
-- [Flutter: Multi-Platform Application Development](https://docs.flutter.dev/)
-- [Clean Architecture by Robert C. Martin (Uncle Bob)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
-- [Flutter Firebase & DDD Course](https://resocoder.com/category/tutorials/flutter/firebase-ddd/)
-- [Bloc State Management Library](https://bloclibrary.dev/#/)
-- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+2. Add the themes you defined to MaterialApp via AppThemeWrapper:
 
-![ddd](https://github.com/duc-ios/flutter_base/raw/main/ddd.svg)
+```dart
+class AppWidget extends StatelessWidget {
+  const AppWidget({super.key});
 
-![ddd_folders](https://github.com/duc-ios/flutter_base/raw/main/ddd_folders.jpg)
+  @override
+  Widget build(BuildContext context) {
+    final router = getIt<AppRouter>();
+    return Consumer(
+      builder: (context, ref, _) {
+        final local = ref.watch(langProvider);
+        return AppThemeWrapper(
+         appTheme: AppTheme.create(
+              locale,
+              mapper: {
+                'en'.toLocale: EnTextThemeFactory(),
+                'zh-Hant'.toLocale: ZhTextThemeFactory(),
+              },
+            ),
+          builder: (context, themeData) => MaterialApp.router(
+            localizationsDelegates: const [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            locale: locale,
+            theme: themeData,
+            routerDelegate: router.delegate(),
+            routeInformationParser: router.defaultRouteParser(),
+          ),
+        );
+      },
+    );
+  }
+}
+```
 
-## Localization Generate:
+By default, the theme concept will choose the theme that is appropriate for the current locale. However, you can override this behavior by using the filter property. For example, you could use the filter property to only use the Chinese theme for locales that start with `zh`, such as `zh-Hant` and `zh-Hans`.
 
-https://docs.google.com/spreadsheets/d/1p9-Sp1XZiLlGm3wGX8Hk1eFMXWbHTuHN3A2SY9szpBo/edit?usp=sharing
+```dart
+appTheme: AppTheme.create(
+              locale,
+              mapper: {
+                'en'.toLocale: EnglishTextThemeFactory(),
+                'zh'.toLocale: ZhTextThemeFactory(),
+              },
+              filter: (mapper) {
+                final map = mapper.map((k, v) => MapEntry(k.languageCode, v));
+                return map[locale.languageCode];
+              },
+            ),
+```
 
-Copyright © 2023 Tyler Flutter
+Everything is completed. And now you can use in the BuildContext property:
+
+```dart
+Text(`Hello World`, style: context.textTheme.bold)
+```

@@ -5,16 +5,15 @@ import 'package:riverbloc/riverbloc.dart';
 import '../../../../common/extensions/locale_x.dart';
 import '../../../../common/utils/getit_utils.dart';
 import '../../../../common/utils/logger.dart';
-import '../../../infrastructure/repositories/lang_repository.dart';
+import '../../../domain/interfaces/lang_repository_interface.dart';
 
-final langProvider =
-    AutoDisposeBlocProvider<LangCubit, Locale>((_) => getIt<LangCubit>());
+final langProvider = AutoDisposeBlocProvider<LangCubit, Locale>((_) => getIt<LangCubit>());
 
 @singleton
 class LangCubit extends Cubit<Locale> {
   LangCubit(this._repository) : super(_repository.getLocale());
 
-  final LangRepository _repository;
+  final ILangRepository _repository;
 
   void setLocale(Locale val) async {
     if (val == _repository.getLocale()) return;

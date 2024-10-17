@@ -52,23 +52,24 @@ class _BottomAppBar extends StatelessWidget {
       padding: EdgeInsets.only(
         left: 8.w,
         right: 8.w,
-        bottom: mode == 2 ? 24.h : 0,
+        bottom: mode == 2 ? 8.h : 0,
       ),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: context.colorTheme.white,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(16.r),
           topRight: Radius.circular(16.r),
         ),
         boxShadow: [
           BoxShadow(
-            color: context.colorTheme.primary.withOpacity(0.08),
+            color: context.colorTheme.black.withOpacity(0.1),
             blurRadius: 15,
             offset: const Offset(0, -4),
           ),
         ],
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _NavigationButton(
               value: NavigationItem.home,
