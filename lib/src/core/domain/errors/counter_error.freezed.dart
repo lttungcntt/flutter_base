@@ -72,6 +72,9 @@ class _$CounterErrorCopyWithImpl<$Res, $Val extends CounterError>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CounterError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -88,6 +91,9 @@ class __$$MustbeLessThan5ImplCopyWithImpl<$Res>
   __$$MustbeLessThan5ImplCopyWithImpl(
       _$MustbeLessThan5Impl _value, $Res Function(_$MustbeLessThan5Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CounterError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -190,6 +196,9 @@ class __$$MustGreaterThan0ImplCopyWithImpl<$Res>
   __$$MustGreaterThan0ImplCopyWithImpl(_$MustGreaterThan0Impl _value,
       $Res Function(_$MustGreaterThan0Impl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CounterError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

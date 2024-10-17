@@ -23,9 +23,13 @@ SingleApiResponse<T> _$SingleApiResponseFromJson<T>(
 mixin _$SingleApiResponse<T> {
   T get data => throw _privateConstructorUsedError;
 
+  /// Serializes this SingleApiResponse to a JSON map.
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of SingleApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $SingleApiResponseCopyWith<T, SingleApiResponse<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -50,6 +54,8 @@ class _$SingleApiResponseCopyWithImpl<T, $Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of SingleApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -83,6 +89,8 @@ class __$$SingleApiResponseImplCopyWithImpl<T, $Res>
       $Res Function(_$SingleApiResponseImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of SingleApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -122,12 +130,14 @@ class _$SingleApiResponseImpl<T> implements _SingleApiResponse<T> {
             const DeepCollectionEquality().equals(other.data, data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of SingleApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$SingleApiResponseImplCopyWith<T, _$SingleApiResponseImpl<T>>
@@ -150,8 +160,11 @@ abstract class _SingleApiResponse<T> implements SingleApiResponse<T> {
 
   @override
   T get data;
+
+  /// Create a copy of SingleApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SingleApiResponseImplCopyWith<T, _$SingleApiResponseImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -165,9 +178,13 @@ ListApiResponse<T> _$ListApiResponseFromJson<T>(
 mixin _$ListApiResponse<T> {
   List<T> get data => throw _privateConstructorUsedError;
 
+  /// Serializes this ListApiResponse to a JSON map.
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of ListApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $ListApiResponseCopyWith<T, ListApiResponse<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -191,6 +208,8 @@ class _$ListApiResponseCopyWithImpl<T, $Res, $Val extends ListApiResponse<T>>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of ListApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -224,6 +243,8 @@ class __$$ListApiResponseImplCopyWithImpl<T, $Res>
       $Res Function(_$ListApiResponseImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of ListApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -268,12 +289,14 @@ class _$ListApiResponseImpl<T> implements _ListApiResponse<T> {
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, const DeepCollectionEquality().hash(_data));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of ListApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ListApiResponseImplCopyWith<T, _$ListApiResponseImpl<T>> get copyWith =>
@@ -295,8 +318,11 @@ abstract class _ListApiResponse<T> implements ListApiResponse<T> {
 
   @override
   List<T> get data;
+
+  /// Create a copy of ListApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ListApiResponseImplCopyWith<T, _$ListApiResponseImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -312,9 +338,13 @@ mixin _$PagingApiResponse<T> {
   int get page => throw _privateConstructorUsedError;
   int get total => throw _privateConstructorUsedError;
 
+  /// Serializes this PagingApiResponse to a JSON map.
   Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of PagingApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $PagingApiResponseCopyWith<T, PagingApiResponse<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -339,6 +369,8 @@ class _$PagingApiResponseCopyWithImpl<T, $Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of PagingApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -382,6 +414,8 @@ class __$$PagingApiResponseImplCopyWithImpl<T, $Res>
       $Res Function(_$PagingApiResponseImpl<T>) _then)
       : super(_value, _then);
 
+  /// Create a copy of PagingApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -445,12 +479,14 @@ class _$PagingApiResponseImpl<T> implements _PagingApiResponse<T> {
             (identical(other.total, total) || other.total == total));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_data), page, total);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of PagingApiResponse
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$PagingApiResponseImplCopyWith<T, _$PagingApiResponseImpl<T>>
@@ -480,8 +516,11 @@ abstract class _PagingApiResponse<T> implements PagingApiResponse<T> {
   int get page;
   @override
   int get total;
+
+  /// Create a copy of PagingApiResponse
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$PagingApiResponseImplCopyWith<T, _$PagingApiResponseImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }

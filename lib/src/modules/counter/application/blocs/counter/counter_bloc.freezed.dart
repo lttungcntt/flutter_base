@@ -78,6 +78,9 @@ class _$CounterEventCopyWithImpl<$Res, $Val extends CounterEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -94,6 +97,9 @@ class __$$IncrementImplCopyWithImpl<$Res>
   __$$IncrementImplCopyWithImpl(
       _$IncrementImpl _value, $Res Function(_$IncrementImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -202,6 +208,9 @@ class __$$DecrementImplCopyWithImpl<$Res>
   __$$DecrementImplCopyWithImpl(
       _$DecrementImpl _value, $Res Function(_$DecrementImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -311,6 +320,8 @@ class __$$AddImplCopyWithImpl<$Res>
   __$$AddImplCopyWithImpl(_$AddImpl _value, $Res Function(_$AddImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -349,7 +360,9 @@ class _$AddImpl implements _Add {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AddImplCopyWith<_$AddImpl> get copyWith =>
@@ -428,7 +441,10 @@ abstract class _Add implements CounterEvent {
   const factory _Add(final int value) = _$AddImpl;
 
   int get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CounterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddImplCopyWith<_$AddImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -497,6 +513,9 @@ class _$CounterStateCopyWithImpl<$Res, $Val extends CounterState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -513,6 +532,9 @@ class __$$LoadingImplCopyWithImpl<$Res>
   __$$LoadingImplCopyWithImpl(
       _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -624,6 +646,8 @@ class __$$FailureImplCopyWithImpl<$Res>
       _$FailureImpl _value, $Res Function(_$FailureImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -662,7 +686,9 @@ class _$FailureImpl implements _Failure {
   @override
   int get hashCode => Object.hash(runtimeType, error);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
@@ -741,7 +767,10 @@ abstract class _Failure implements CounterState {
   const factory _Failure(final String error) = _$FailureImpl;
 
   String get error;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FailureImplCopyWith<_$FailureImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -763,6 +792,8 @@ class __$$ValueImplCopyWithImpl<$Res>
       _$ValueImpl _value, $Res Function(_$ValueImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -801,7 +832,9 @@ class _$ValueImpl implements _Value {
   @override
   int get hashCode => Object.hash(runtimeType, value);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$ValueImplCopyWith<_$ValueImpl> get copyWith =>
@@ -880,7 +913,10 @@ abstract class _Value implements CounterState {
   const factory _Value(final int value) = _$ValueImpl;
 
   int get value;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of CounterState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ValueImplCopyWith<_$ValueImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

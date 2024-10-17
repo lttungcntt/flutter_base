@@ -1,24 +1,21 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:isolate';
 
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:talker_bloc_logger/talker_bloc_logger.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+import 'package:talker_riverpod_logger/talker_riverpod_logger.dart';
 
 import 'src/common/extensions/locale_x.dart';
 import 'src/common/utils/app_environment.dart';
 import 'src/common/utils/getit_utils.dart';
 import 'src/common/utils/logger.dart';
-import 'src/core/application/cubits/auth/auth_cubit.dart';
-import 'src/core/application/cubits/lang/lang_cubit.dart';
-import 'src/core/application/cubits/theme/theme_cubit.dart';
 import 'src/core/domain/interfaces/lang_repository_interface.dart';
 import 'src/core/infrastructure/datasources/local/storage.dart';
-import 'src/modules/app/app_router.dart';
 import 'src/modules/app/app_widget.dart';
-import 'src/modules/dashboard/application/cubit/dashboard_cubit.dart';
 
 void main() {
   runZonedGuarded(() async {
@@ -28,6 +25,16 @@ void main() {
     await Storage.setup();
     await GetItUtils.setup();
 
+    const platform = MethodChannel('base.mode/navigation-mode');
+    int mode = 2; // Full screen gesture mode
+    if (Platform.isAndroid) {
+      try {
+        // support read the android navigation mode only.
+        mode = await platform.invokeMethod('getNavigationMode');
+      } on PlatformException catch (_) {}
+    }
+    if (mode == 2) SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+
     final langRepository = getIt<ILangRepository>();
     final talker = getIt<Talker>();
     _setupErrorHooks(talker);
@@ -35,27 +42,11 @@ void main() {
         'deviceLocale - ${langRepository.getDeviceLocale().fullLanguageCode}');
     logger.d('currentLocale - ${langRepository.getLocale().fullLanguageCode}');
 
-    Bloc.observer = TalkerBlocObserver(talker: talker);
-
     runApp(
-      MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (_) => getIt<ThemeCubit>()),
-          BlocProvider(create: (_) => getIt<AuthCubit>()),
-          BlocProvider(create: (_) => getIt<LangCubit>()),
-          BlocProvider(create: (_) => getIt<DashboardCubit>()),
-        ],
-        child: MultiBlocListener(
-          listeners: [
-            BlocListener<AuthCubit, AuthState>(listener: (context, state) {
-              final router = getIt<AppRouter>();
-              state.whenOrNull(
-                  authenticated: (user) =>
-                      router.replaceAll([const DashboardRoute()]),
-                  unauthenticated: () =>
-                      router.replaceAll([const AuthRoute()]));
-            }),
-          ],
+      ProviderScope(
+        observers: [TalkerRiverpodObserver(talker: talker)],
+        child: BottomNavigationModeRegion(
+          mode: mode,
           child: const AppWidget(),
         ),
       ),
@@ -91,4 +82,29 @@ Future _setupErrorHooks(Talker talker, {bool catchFlutterErrors = true}) async {
 
 void _reportError(dynamic error, dynamic stackTrace, Talker talker) async {
   talker.error('Unhandled Exception', error, stackTrace);
+}
+
+class BottomNavigationModeRegion extends InheritedWidget {
+  const BottomNavigationModeRegion({
+    super.key,
+    required this.mode,
+    required super.child,
+  });
+
+  final int mode;
+
+  @override
+  bool updateShouldNotify(covariant BottomNavigationModeRegion oldWidget) {
+    return oldWidget.mode == mode;
+  }
+
+  static BottomNavigationModeRegion? maybeOf(BuildContext context) {
+    return context
+        .dependOnInheritedWidgetOfExactType<BottomNavigationModeRegion>();
+  }
+
+  static int of(BuildContext context) {
+    final BottomNavigationModeRegion? result = maybeOf(context);
+    return result?.mode ?? 2;
+  }
 }

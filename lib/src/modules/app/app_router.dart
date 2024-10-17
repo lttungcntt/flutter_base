@@ -17,10 +17,10 @@ part 'app_router.gr.dart';
 
 @singleton
 @AutoRouterConfig(replaceInRouteName: 'Page,Route')
-class AppRouter extends _$AppRouter {
+class AppRouter extends RootStackRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(page: SplashRoute.page, path: '/'),
+        AutoRoute(page: SplashRoute.page, initial: true),
         AutoRoute(page: HomeRoute.page),
         AutoRoute(page: AuthRoute.page),
         AutoRoute(page: CounterRoute.page),

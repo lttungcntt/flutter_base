@@ -65,6 +65,9 @@ class _$TapErrorCopyWithImpl<$Res, $Val extends TapError>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of TapError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -81,6 +84,9 @@ class __$$TooManyTapImplCopyWithImpl<$Res>
   __$$TooManyTapImplCopyWithImpl(
       _$TooManyTapImpl _value, $Res Function(_$TooManyTapImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of TapError
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc

@@ -21,6 +21,8 @@
 .project
 .settings/
 .vscode/
+.mason/
+devtools_options.yaml
 
 # Flutter repo-specific
 /bin/cache/
@@ -62,9 +64,9 @@ unlinked_spec.ds
 # Generated
 lib/generated/
 *.freezed.dart
-*.config.dart
 *.g.dart
 *.gr.dart
+*.config.dart
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -135,8 +137,4 @@ app.*.symbols
 ios/Flutter/tmp.xcconfig
 ios/.envfile
 
-#Mason
-.mason/
-
-#Firebase
-firepit-log.txt
+*.salive

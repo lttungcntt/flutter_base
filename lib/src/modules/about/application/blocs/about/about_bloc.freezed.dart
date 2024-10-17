@@ -72,6 +72,9 @@ class _$AboutEventCopyWithImpl<$Res, $Val extends AboutEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AboutEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -88,6 +91,9 @@ class __$$EventShowImplCopyWithImpl<$Res>
   __$$EventShowImplCopyWithImpl(
       _$EventShowImpl _value, $Res Function(_$EventShowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AboutEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -190,6 +196,9 @@ class __$$EventHideImplCopyWithImpl<$Res>
   __$$EventHideImplCopyWithImpl(
       _$EventHideImpl _value, $Res Function(_$EventHideImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AboutEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -336,6 +345,9 @@ class _$AboutStateCopyWithImpl<$Res, $Val extends AboutState>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  /// Create a copy of AboutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -352,6 +364,9 @@ class __$$StateShowImplCopyWithImpl<$Res>
   __$$StateShowImplCopyWithImpl(
       _$StateShowImpl _value, $Res Function(_$StateShowImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AboutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
@@ -454,6 +469,9 @@ class __$$StateHideImplCopyWithImpl<$Res>
   __$$StateHideImplCopyWithImpl(
       _$StateHideImpl _value, $Res Function(_$StateHideImpl) _then)
       : super(_value, _then);
+
+  /// Create a copy of AboutState
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
